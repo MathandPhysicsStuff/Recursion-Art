@@ -9,4 +9,7 @@
 
 enum BOOL { FALSE, TRUE };
 
+
+void draw_circle(SDL_Renderer *renderer, double x, double y, double radius, int *color);
+
 #endif

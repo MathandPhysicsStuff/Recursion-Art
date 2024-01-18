@@ -33,7 +33,10 @@ int main()
     /*Place where variables, structs, and some functions are initiated*/
     /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/ 
     /*vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv*/ 
-   
+    
+    int WHITE[3] = {255, 255, 255};
+    double radius = 1;
+
     /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
     /*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
    
@@ -59,6 +62,16 @@ int main()
                     case SDLK_ESCAPE:
                         running = SDL_FALSE;
                         break;
+
+                    case SDLK_i:
+                        if (radius-1 > 0)
+                            radius -= 1;
+                        break;
+
+                    case SDLK_o:
+                        radius += 1;
+                        break;
+
                 }
             }
         }
@@ -66,6 +79,8 @@ int main()
 
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
+
+        draw_circle(renderer, screen_centerX, screen_centerY, radius, WHITE);
 
 
         SDL_RenderPresent(renderer);
